@@ -1,16 +1,21 @@
+//create Post and Fetch post
+
 const Post = require("../model/postModel");
 
-exports.postController = async(req,res) => {
+exports.createPost = async(req,res) => {
 
     try{
         const { title, body} = req.body;
-        const response = Post.create({title,body});
+        const post = new Post({
+            title,body
+        });
+
+        const savedPost = await post.save();
+
 
         //response
-        res.status(200)
-        .json({
-            success:true,
-            data: response,
+        res.json({
+            post: savedPost ,
             message: "Post Created Succefully",
         })
         
