@@ -33,4 +33,27 @@ exports.createPost = async(req,res) => {
         )
 
     }
+};
+
+//fetching data
+exports.getAllPosts = async (req,res) => {
+    try {
+        const posts = await Post.find()
+        .populate("comments").exec();
+        res.json({
+            posts,
+        })
+    }
+    catch(error){
+        console.error(err);
+        console.log(err);
+        res.status(500).json(
+            {
+                success:false,
+                data: "Internal server error",
+                message: err.message
+            }
+        )
+    }
+
 }
