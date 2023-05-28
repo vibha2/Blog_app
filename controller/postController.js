@@ -57,3 +57,14 @@ exports.getAllPosts = async (req,res) => {
     }
 
 }
+
+// http://localhost:4000/api/v1/posts/create
+// tesing for post 
+// {
+//     "title": "Sanchit Jain",
+//     "body": "Kya pdhate ho"
+// }
+// send in postman
+
+//For Get Post
+// http://localhost:4000/api/v1/posts

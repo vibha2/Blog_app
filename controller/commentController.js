@@ -20,8 +20,7 @@ exports.createComment = async (req,res) => {
         //find the post by ID, add the new comment to its comment array
         const updatedPost = await Post.findByIdAndUpdate(post,
              {$push: {comments: savedComment._id}},
-             {new: true} //update document return to me / by default: old document
-             )
+             {new: true} ) //update document return to me / by default: old document
              .populate("comments") //populate the comments array with comment document
              .exec();
         
@@ -41,3 +40,20 @@ exports.createComment = async (req,res) => {
 }
 
 //http://localhost:4000/api/v1//comments/create
+//Testing steps in Postman
+//Create a Post manually in DB using Add Data
+// {
+//     "title": "Check Post",
+//     "body": "Check Post"
+//    }
+// we want to comment in this post
+// copy id of this post from DB
+//Now add this Id and run comment create url in postman
+//{
+//     "post": "6473401198f311ce6c1ac612",
+//     "user": "Praveen Sahu",
+//     "body": "This is for testing comment"
+
+// }
+
+

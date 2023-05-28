@@ -1,6 +1,6 @@
 
 
-exports.dummyController = async(req,res) => {
+// exports.dummyController = async(req,res) => {
 
-    res.send("This is your Dummy Page");
-}
+//     res.send("This is your Dummy Page");
+// }
